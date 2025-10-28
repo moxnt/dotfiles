@@ -127,3 +127,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/home/mox/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/mox/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export EDITOR=nvim
