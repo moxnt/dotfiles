@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jonathan"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -109,22 +109,25 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias stopwatch="porsmo stopwatch"
+alias windows="cd /mnt/c/Users/raizupietis/"
 #
 # Rust
-export PATH=$PATH:/home/mox/.cargo/bin
+export PATH=$PATH:$HOME/.cargo/bin
 # pnpm
 #
-export PNPM_HOME="/home/mox/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/home/mox/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/mox/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 export EDITOR=nvim
+export PATH="/home/u1014/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/u1014/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export PATH=/home/u1014/bin:$PATH
+export DOCKER_HOST=unix:///run/user/1000//docker.sock
