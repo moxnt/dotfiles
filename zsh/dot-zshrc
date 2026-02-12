@@ -1,12 +1,27 @@
-# =====================================  starship  =====================================
+# ====================== vim  binds ======================
+bindkey -v
+bindkey '^?' backward-delete-char
+bindkey '^H' backward-delete-char
+
+bindkey -M vicmd "n" vi-backward-char
+bindkey -M vicmd "e" vi-down-line-or-history
+bindkey -M vicmd "i" vi-up-line-or-history
+bindkey -M vicmd "o" vi-forward-char
+
+bindkey -M vicmd "h" vi-repeat-search
+bindkey -M vicmd "j" vi-forward-word-end
+bindkey -M vicmd "k" vi-insert
+bindkey -M vicmd "l" vi-open-line-below
+
+# ======================  starship  ======================
 
 eval "$(starship init zsh)"
 
-# =====================================    env     =====================================
+# ======================    env     ======================
 export EDITOR=nvim
 
 
-# =====================================    path    =====================================
+# ======================    path    ======================
 export PATH=$PATH:$HOME/.cargo/bin
 # pnpm
 #

@@ -1,0 +1,147 @@
+# TODO: Find use for the awesome custom module
+# TODO: Improve vim symbol design, perhaps [vim logo]> where > is a pretty UNICODE right arrow?
+
+# General
+format = """
+$directory \
+$git_branch\
+$git_commit\
+$git_status\
+$git_metrics\
+$line_break\
+
+$username\
+$hostname \
+$container\
+
+$os\
+$jobs\
+$character
+"""
+
+right_format = """
+$git_state \
+$cmd_duration\
+$time\
+
+$c\
+$conda\
+$docker_context\
+$golang\
+$haskell\
+$helm\
+$java\
+$lua\
+$nodejs\
+$package\
+$php\
+$python\
+$quarto\
+$raku\
+$rust\
+$typst\
+
+$sudo\
+$battery\
+"""
+
+scan_timeout = 30
+command_timeout = 500
+add_newline = false
+follow_symlinks = true
+
+# Define named colors
+palette = 'main'
+palettes = { main = {
+  catppuccin_comment = '#605F6F',
+  catppuccin_bg = '#232231',
+  cattpuccin_yellow = '#FAE2AF',
+  cattpuccin_orange = '#F8BC95',
+  cattpuccin_textblue = '#88B3FA',
+  cattpuccin_green = '#A9E8B2',
+  cattpuccin_red = '#F38AA6',
+  vim_normal = '#8AC1F0',
+  vim_visual = '#88DBEA',
+  vim_insert = '#C69FDB'
+}}
+
+[c]
+format = '[with [$symbol](fg:#659AD2 ) [$name](white)-$version]($style)'
+version_format = 'v${major}.${minor}'
+symbol = ''
+style = 'catppuccin_comment'
+
+[username]
+style_user = 'bold white'
+detect_env_vars = ['PROMPT_USERNAME']
+format = '[\[$user[@](cyan)]($style)'
+
+[hostname]
+ssh_only = false
+ssh_symbol = ' 🌏'
+detect_env_vars = ['PROMPT_USERNAME']
+format = '[$hostname$ssh_symbol]($style)\] '
+style = 'yellow'
+
+[character]
+success_symbol = ' [❯](bold green)'
+error_symbol = ' [❯](bold red)'
+vimcmd_symbol = ' [](bold bg:vim_normal fg:catppuccin_bg)'
+vimcmd_replace_one_symbol = ' [](bold bg:vim_insert fg:catppuccin_bg)'
+vimcmd_visual_symbol = ' [](bold bg:vim_visual fg:catppuccin_bg)'
+
+[cmd_duration]
+min_time = 20_000
+style = 'yellow'
+show_notifications = true
+min_time_to_notify = 60_000
+
+[container]
+symbol = ''
+style = 'cattpuccin_orange'
+
+[directory]
+truncation_length = 3
+read_only = '[🔒]' 
+style = 'bold cattpuccin_textblue'
+format = '[$read_only]($read_only_style)[$path]($style)'
+truncation_symbol = '-/'
+before_repo_root_style = 'black'
+repo_root_style = 'cattpuccin_green'
+repo_root_format = '[](#F34F29) [$read_only]($read_only_style)[$repo_root]($repo_root_style)[$path]($style)'
+
+[git_branch]
+style = 'bold cattpuccin_red'
+only_attached = true
+
+[git_commit]
+commit_hash_length = 6
+style = 'bold yellow'
+only_detached = true
+format = '\[[$hash](yellow)[$tag](cattpuccin_yellow)\]'
+
+[git_state]
+format = '\ ([$state( $progress_current/$progress_total)]($style)\) ' 
+style = 'bold cyan'
+
+[git_metrics]
+disabled = false
+format = ' | ([+$added]($added_style) )([-$deleted]($deleted_style) )'
+
+[git_status]
+style = 'bold #F34F29'
+
+[os]
+disabled = false
+style = 'bold cattpuccin_textblue'
+[os.symbols]
+Arch = ''
+
+[sudo]
+symbol = '🔑'
+format = '[$symbol]($style)'
+disabled = false
+
+[time]
+disabled = false
+style = 'catppuccin_comment'
