@@ -15,7 +15,7 @@ $hostname \
 $container\
 
 $jobs\
-$character  """
+$character"""
 
 right_format = """\
 $git_state \
@@ -130,7 +130,7 @@ format = ' | ([+$added]($added_style) )([-$deleted]($deleted_style) )'
 style = 'bold #F34F29'
 
 [os]
-disabled = false
+disabled = true
 style = 'bold cattpuccin_textblue'
 [os.symbols]
 Arch = ''
