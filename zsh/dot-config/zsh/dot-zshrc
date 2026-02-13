@@ -4,25 +4,33 @@
 #  / /\__ \ | | | | | (__ 
 # /___|___/_| |_|_|  \___|
 #                        
+# ======================   history  ======================
+#
+HISTSIZE=10000
+SAVEHIST=10000
+
+[ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
+
+HISTFILE="$XDG_STATE_HOME"/zsh/history
+
+
 # ====================== completion ======================
+
+[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
 
 autoload -U compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 zmodload zsh/complist
-compinit
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 _comp_options+=(globdots)
-
-# ======================  history   ======================
-
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh-history
 
 # ======================  aliases   ======================
 
 alias gs="clear ; git -P status"
 alias gl="clear ; git -P log -n 4"
 alias ga="git commit --amend"
+alias dirsize="du -hs"
 
 # ====================== vim  binds ======================
 bindkey -v
@@ -39,10 +47,6 @@ bindkey -M vicmd "j" vi-forward-word-end
 bindkey -M vicmd "k" vi-insert
 bindkey -M vicmd "l" vi-open-line-below
 
-# ======================  starship  ======================
-
-eval "$(starship init zsh)"
-
 # ======================    env     ======================
 
 export EDITOR=nvim
@@ -50,7 +54,7 @@ export VISUAL=nvim
 export BROWSER=firefox
 
 # ======================    path    ======================
-export PATH=$PATH:$HOME/.cargo/bin
+export PATH="$CARGO_HOME/bin:$PATH"
 # pnpm
 #
 export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -58,3 +62,8 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# ======================  starship  ======================
+
+eval "$(starship init zsh)"
+
