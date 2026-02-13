@@ -1,3 +1,9 @@
+# ======================  aliases   ======================
+
+alias gs="clear ; git -P status"
+alias gl="clear ; git -P log -n 4"
+alias ga="git commit --amend"
+
 # ====================== vim  binds ======================
 bindkey -v
 bindkey '^?' backward-delete-char
@@ -18,8 +24,10 @@ bindkey -M vicmd "l" vi-open-line-below
 eval "$(starship init zsh)"
 
 # ======================    env     ======================
-export EDITOR=nvim
 
+export EDITOR=nvim
+export VISUAL=nvim
+export BROWSER=firefox
 
 # ======================    path    ======================
 export PATH=$PATH:$HOME/.cargo/bin

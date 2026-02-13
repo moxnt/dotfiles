@@ -1,6 +1,7 @@
 # TODO: Find use for the awesome custom module
 # TODO: Improve vim symbol design, perhaps [vim logo]> where > is a pretty UNICODE right arrow?
 
+#$line_break\
 # General
 format = """
 $directory \
@@ -8,18 +9,15 @@ $git_branch\
 $git_commit\
 $git_status\
 $git_metrics\
-$line_break\
 
 $username\
 $hostname \
 $container\
 
-$os\
 $jobs\
-$character
-"""
+$character  """
 
-right_format = """
+right_format = """\
 $git_state \
 $cmd_duration\
 $time\
@@ -43,7 +41,7 @@ $typst\
 
 $sudo\
 $battery\
-"""
+$os"""
 
 scan_timeout = 30
 command_timeout = 500
